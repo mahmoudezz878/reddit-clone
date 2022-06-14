@@ -14,9 +14,10 @@ export const CommentForm = () => {
 
   const [comment, setComment] = useState("");
 
-  const addOneComment = async (postId,userId, body) => {
-    const res = await addComment(postId, userId, {body:comment})
-    console.log(res)
+
+  const addOneComment = async (userId, postId, body) => {
+    const res = await addComment(userId, postId, {body:comment})
+    setComment("")
   }
 
   return (
@@ -27,6 +28,7 @@ export const CommentForm = () => {
           placeholder="Add a Note"
           style={{ width: "100%" }}
           onChange={(e) => {setComment(e.target.value)}}
+          value={comment}
         />
         <div className="img">
           <IconButton sx={{ "&:hover": { backgroundColor: "transparent" }}}
@@ -34,7 +36,7 @@ export const CommentForm = () => {
             edge="end"
             aria-label="account of current user"
             aria-haspopup="true"
-          onClick={() => {addOneComment(id,2, comment )}}
+          onClick={() => {addOneComment(2, id, comment )}}
           >
             <Button sx={{ "&:hover": { backgroundColor: "rgb(225, 29, 72)" }}} variant="contained">Comment</Button>
           </IconButton>
