@@ -15,7 +15,7 @@ const Comments = ({ comments }) => {
           {!comments || comments == 0
             ? <div style={{padding: '16px'}}>No Comments</div>
             : comments.map((comment) => {
-              return <OneComment body={comment.body} />;
+              return <OneComment key={comment.id} body={comment.body} />;
             })}
           <CommentForm />
         </div>
