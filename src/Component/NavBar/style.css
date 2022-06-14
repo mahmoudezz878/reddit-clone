@@ -176,3 +176,13 @@ h2 {
   min-width: 250px !important;
   width: inherit !important;
 }
+
+.postButtonColor {
+  color: #fff !important;
+ }
+
+@media (max-width: 600px) {
+  .postButtonColor {
+   color: #000 !important;
+  }
+}

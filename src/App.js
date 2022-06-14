@@ -21,8 +21,6 @@ function App() {
     fetchPosts()
   },[])
 
-  console.log({ posts });
-
   return (
     <div className="App">
       <BrowserRouter>

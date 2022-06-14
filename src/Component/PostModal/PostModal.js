@@ -8,7 +8,6 @@ import * as Yup from "yup";
 import { addPost } from "../../Api";
 
 const PostModal = () => {
-
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -33,24 +32,15 @@ const PostModal = () => {
       title: "",
       userId: 2,
       body: "",
-      tags:[],
+      tags: [],
     },
     onSubmit: async (values, { resetForm }) => {
-        console.log({values})
 
-        const res = await addPost(values.userId, {title:values.title, body:values.body, tags:values.tags});
-        console.log(res);
-
-
-    //   dispatch(
-    //     addPosts({
-    //       title: values.title,
-    //       userId: values.userId,
-    //       body: values.body,
-    //       comments: [],
-    //       tags:[],
-    //     })
-    //   );
+      const res = await addPost(values.userId, {
+        title: values.title,
+        body: values.body,
+        tags: values.tags,
+      });
       resetForm();
       setOpen(false);
     },
@@ -63,7 +53,9 @@ const PostModal = () => {
 
   return (
     <div>
-      <Button sx={{color:'#FFF'}} onClick={handleOpen}>New Post</Button>
+      <Button className="postButtonColor" onClick={handleOpen}>
+        New Post
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -85,8 +77,8 @@ const PostModal = () => {
             onChange={formik.handleChange}
           />
           <TextField
-          error={!!formik.errors.userId}
-          helperText={formik.errors.userId}
+            error={!!formik.errors.userId}
+            helperText={formik.errors.userId}
             id="userId"
             name="userId"
             label="userId"
@@ -98,8 +90,8 @@ const PostModal = () => {
             onChange={formik.handleChange}
           />
           <TextField
-          error={!!formik.errors.body}
-          helperText={formik.errors.body}
+            error={!!formik.errors.body}
+            helperText={formik.errors.body}
             id="body"
             name="body"
             label="body"
@@ -111,8 +103,8 @@ const PostModal = () => {
             onChange={formik.handleChange}
           />
           <TextField
-          error={!!formik.errors.tags}
-          helperText={formik.errors.tags}
+            error={!!formik.errors.tags}
+            helperText={formik.errors.tags}
             id="tags"
             name="tags"
             label="tags"
@@ -130,7 +122,7 @@ const PostModal = () => {
           >
             Cancel
           </Button>
-          <Button  onClick={formik.handleSubmit} variant="contained">
+          <Button onClick={formik.handleSubmit} variant="contained">
             Add Post
           </Button>
         </Box>

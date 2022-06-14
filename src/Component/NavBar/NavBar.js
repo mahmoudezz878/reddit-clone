@@ -20,6 +20,7 @@ import red from "./reddit.png";
 import ava from "./ava.avif";
 import Button from "@mui/material/Button";
 import PostModal from "../PostModal/PostModal";
+import { Link } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -125,36 +126,8 @@ const NavBar = () => {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
+        <IconButton size="large" aria-label="show 4 new mails"></IconButton>
+        <PostModal />
       </MenuItem>
     </Menu>
   );
@@ -174,7 +147,9 @@ const NavBar = () => {
         <div className="container">
           <div className="navContainer">
             <div>
+            <Link to={'/'}>
               <img src={red} height="48px" />
+              </Link>
             </div>
             <div className="navInput">
               <Search>
@@ -198,7 +173,8 @@ const NavBar = () => {
                   sx={{ "&:hover": { backgroundColor: "transparent" } }}
                 >
                   <img src={ava} height="32px" />
-                  <Button className="nav-btn"
+                  <Button
+                    className="nav-btn"
                     sx={{ "&:hover": { backgroundColor: "rgb(225, 29, 72)" } }}
                     variant="contained"
                   >
@@ -207,7 +183,7 @@ const NavBar = () => {
                 </IconButton>
               </Box>
             </div>
-            {/* <Box className="test" sx={{ display: { xs: "flex", md: "none" } }}>
+            <Box className="test" sx={{ display: { xs: "flex", sm: "none" } }}>
               <IconButton
                 size="large"
                 aria-label="show more"
@@ -218,7 +194,7 @@ const NavBar = () => {
               >
                 <MoreIcon />
               </IconButton>
-            </Box> */}
+            </Box>
           </div>
         </div>
       </AppBar>

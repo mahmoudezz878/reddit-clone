@@ -10,7 +10,6 @@ export const CommentForm = () => {
 
   const { id } = useParams();
 
-  console.log({id})
 
   const [comment, setComment] = useState("");
 

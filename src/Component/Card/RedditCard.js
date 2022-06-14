@@ -11,7 +11,6 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
 
 const RedditCard = ({post}) => {
-  console.log(post)
   return (
     <Card style={{ marginTop: "16px" }} sx={{ maxWidth: 592 }}>
       <CardHeader
